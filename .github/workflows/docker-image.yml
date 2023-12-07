@@ -32,7 +32,7 @@ jobs:
     #If null/empty it will be 1.0, otherwise 0.1 will be added
     - name: Read current image Tag
       run: |
-        result=$(kubectl get deploy my-nodejs-app -o wide --no-headers | awk '{print $7}' | awk -F':' '{print ($NF == "") ? "1.0" : $NF + 0.1}')
+        result=$(result=$(kubectl get deploy -o wide --no-headers | grep my-nodejs-app | awk '{print $7}' | awk -F':' '{print $NF + 0.1}' 2>/dev/null); [ -z "$result" ] && echo ${DEFAULT_VALUE:-1.0} || echo $result)
         echo "IMAGE_TAG=$result" >> $GITHUB_ENV
     - name: Build.Tag and Push image to Amazon ECR
       env:
