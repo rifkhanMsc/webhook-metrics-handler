@@ -40,7 +40,7 @@ const app = express();
 
 app.use('/api',async (req, res) => {
   try {
-    res.status(200).json({"message":"ok 32"});
+    res.status(200).json({"message":"welcome to webhook metrics handler"});
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
