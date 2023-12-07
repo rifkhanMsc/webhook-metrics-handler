@@ -41,6 +41,9 @@ jobs:
       run: |
         docker build -t $REGISTRY/$Repository:$IMAGE_TAG .
         docker push $REGISTRY/$Repository:$IMAGE_TAG
+    
+    - name: Replace Image Tag in Deployment
+      run: sed -i "s/{{ IMAGE_TAG }}/${IMAGE_TAG}/" k8s.yaml
       
     - name: Deploy to EKS
       run: |
