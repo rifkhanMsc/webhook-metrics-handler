@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-nodejs-app
-          image: 593446578576.dkr.ecr.us-east-2.amazonaws.com/cmm707:1.2
+          image: 593446578576.dkr.ecr.us-east-2.amazonaws.com/cmm707:{{ IMAGE_TAG }}
           ports:
             - containerPort: 3000
 ---
