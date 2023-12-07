@@ -27,6 +27,6 @@ spec:
     app: my-nodejs-app
   ports:
     - protocol: TCP
-      port: 443
+      port: 80
       targetPort: 3000
   type: LoadBalancer
