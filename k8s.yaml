@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nodejs-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-nodejs-app
+  template:
+    metadata:
+      labels:
+        app: my-nodejs-app
+    spec:
+      containers:
+        - name: my-nodejs-app
+          image: 593446578576.dkr.ecr.us-east-2.amazonaws.com/cmm707:1.1
+          ports:
+            - containerPort: 3000
